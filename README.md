@@ -49,7 +49,7 @@ Following are the main contents to follow, you can jump to any section:
 >      - [Environment Setup](#env-setup)<br>
 >      - [Environment Variables](#env-vars)<br>
 >      - [Run Project](#run-project)<br>
-
+>   - [Build and push docker](#build-push-docker)<br>
 ## Introduction<a id='project-intro'></a>
 
 This project demonstrates the power and potential of combining cutting-edge AI technologies with popular messaging platforms like Telegram, to create intelligent and engaging chatbots that can deliver real value to users.
@@ -109,11 +109,21 @@ BOT_TOKEN=""
 
 ```
 
-Run Project<a id='run-project'></a>
+#### Run Project<a id='run-project'></a>
 
 ```bash
   python src/chatgpt.py
 ```
+
+## Build and Push Docker<a id='build-push-docker'></a>
+Run the following command to push to docker image to Azure Container Registry<br>
+Then enable the "admin user" from the "access key" in the container registry, Now these credentials will be used in the following steps:
+```bash
+docker build -t appbot.azurecr.io/bot:latest .
+docker login appbot.azurecr.io
+docker push appbot.azurecr.io/bot:latest
+```
+
 #### **👉🏻Thank you for visiting 🙏 Your feedback would be highly appreciated 💯😊**<br>
 #### **👉🏻If you find this project useful then don't forget to star the repo ✨⭐🤖**<br>
 #### 🌏[My Portfolio Website][website] <br><br>

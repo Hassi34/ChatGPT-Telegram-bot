@@ -6,7 +6,7 @@ EXPOSE 80 443 8080
 
 WORKDIR /src
 
-COPY ./src/ .
+COPY . .
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
