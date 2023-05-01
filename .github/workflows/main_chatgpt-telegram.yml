@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://appbot.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_8619495a95134ed49ce2b2b82e424147 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_24e0d07892a04a24bf0d54db519e633c }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_83d4bbd28fe9484681dec0ebe56570fa }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_776f2ab76e5446e6bbf7e091c06fdfc5 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: appbot.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8619495a95134ed49ce2b2b82e424147 }}/bot:${{ github.sha }}
+        tags: appbot.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_83d4bbd28fe9484681dec0ebe56570fa }}/bot:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'chatgpt-telegram'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_144bafae9844439a955caeb138765a11 }}
-        images: 'appbot.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8619495a95134ed49ce2b2b82e424147 }}/bot:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_cf1292f6b21049eab0e95c1ff718e07c }}
+        images: 'appbot.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_83d4bbd28fe9484681dec0ebe56570fa }}/bot:${{ github.sha }}'
